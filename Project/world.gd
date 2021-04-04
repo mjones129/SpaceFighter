@@ -20,3 +20,4 @@ func _on_Timer_timeout():
 	ENEMY.position.x = rand_range(0, 250)
 	ENEMY.position.y = rand_range(-50, -100)
 	add_child(ENEMY)
+
