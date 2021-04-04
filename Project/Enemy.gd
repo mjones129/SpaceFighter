@@ -15,3 +15,7 @@ func _process(delta):
 	position.y += .75
 	
 
+
+
+func _on_Timer_timeout():
+	queue_free()
