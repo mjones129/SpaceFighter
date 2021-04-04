@@ -16,3 +16,8 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
 shape = SubResource( 1 )
+
+[node name="BulletTime" type="Timer" parent="Bullet"]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="Bullet/BulletTime" to="Bullet" method="_on_BulletTime_timeout"]

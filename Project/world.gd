@@ -10,12 +10,13 @@ var enemySpawnPoint = Vector2(123,-100)
 func _ready():
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if $Timer.time_left < 0:
-		var ENEMY = enemy.instance()
-		get_node(".").add_child(ENEMY)
-		ENEMY.global_position = enemySpawnPoint
-	else:
-		pass
+func _physics_process(delta):
+	pass
+
+
+func _on_Timer_timeout():
+	var ENEMY = enemy.instance()
+	ENEMY.position.x = rand_range(0, 250)
+	ENEMY.position.y = rand_range(-50, -100)
+	add_child(ENEMY)
