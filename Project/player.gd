@@ -23,7 +23,9 @@ func get_input():
 		var bullet = BULLET.instance()
 		get_node("/root/world").add_child(bullet)
 		bullet.global_position = $Position2D.global_position
+		$shootSound.play()
 		
+			
 	
 func _physics_process(delta):
 	get_input()

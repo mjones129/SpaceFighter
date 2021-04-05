@@ -21,6 +21,7 @@ func _on_Bullet_area_entered(area):
 		$Sprite.visible = false
 		velocity = Vector2(0, 0)
 		$AnimatedSprite.visible = true
+		$boomSound.play()
 		$AnimatedSprite.play()
 
 
