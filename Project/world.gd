@@ -17,7 +17,7 @@ func _physics_process(delta):
 
 func _on_Timer_timeout():
 	var ENEMY = enemy.instance()
-	ENEMY.position.x = rand_range(0, 250)
+	ENEMY.position.x = rand_range(50, 200)
 	ENEMY.position.y = rand_range(-50, -100)
 	add_child(ENEMY)
 
