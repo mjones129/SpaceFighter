@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world.gd" type="Script" id=2]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 155.366 )
 
 [node name="world" type="Node2D"]
 script = ExtResource( 2 )
@@ -17,4 +20,38 @@ autostart = true
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 75, -66 )
+
+[node name="leftWall" type="RigidBody2D" parent="."]
+position = Vector2( -7, 133 )
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftWall"]
+position = Vector2( -4, 3 )
+shape = SubResource( 1 )
+
+[node name="rightWall" type="RigidBody2D" parent="."]
+position = Vector2( 257, 115 )
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightWall"]
+position = Vector2( 10, -2 )
+shape = SubResource( 1 )
+
+[node name="bottomWall" type="RigidBody2D" parent="."]
+position = Vector2( 123, 267 )
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottomWall"]
+position = Vector2( 3, -2 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="topWall" type="RigidBody2D" parent="."]
+position = Vector2( 122, -12 )
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="topWall"]
+position = Vector2( 3, -2 )
+rotation = 1.5708
+shape = SubResource( 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
